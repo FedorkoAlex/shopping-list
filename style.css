@@ -1,0 +1,78 @@
+
+
+/* * body {
+    background-image: url('bg.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size;
+   
+} */
+
+
+.checked{
+    color: gray;
+    text-decoration: line-through;
+}
+
+
+/* 
+html{
+  
+    
+
+    background-image: url('https://cdn.cjr.org/wp-content/uploads/2019/07/AdobeStock_100000042-e1563305717660-686x371.jpeg');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+
+
+} */
+
+
+/* *{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #F5F5F5;
+
+}
+
+.box{
+    width: 330px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 10px 0 0;
+    background-color: #ffffff;
+    border-radius: 3px ;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+}
+
+
+  
+
+
+
+
+
+
+.heading{
+    padding: 10px 0 5px 0;
+    
+    border-bottom: 1.5px solid grey;
+ 
+}
+
+.text{
+    padding: 5px 0;
+}
+.image{
+    margin-bottom: 5px;
+} */
