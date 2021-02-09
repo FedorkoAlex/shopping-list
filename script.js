@@ -16,12 +16,10 @@ let render = () => {
 		deleteBtn.innerText = 'delete'
 		div.appendChild(deleteBtn)
 
-		div.addEventListener('click', () => {
-			div.setAttribute('class', 'checked')
-		})
+	
 
 		deleteBtn.addEventListener('click', () => {
-			console.log('delete', item.id)
+	
 
 			let result = parseItems.filter(function(product){  // we need to filter each product and leave products that are not equal with the one that had been selected before
 				return product.id !== item.id
@@ -29,6 +27,10 @@ let render = () => {
 			localStorage.setItem('products', JSON.stringify(result) ) // we save new set of 'products' and at the same time stringify them
 			location.reload()
 			
+		})
+
+		div.addEventListener('click', () => {
+			div.setAttribute('class', 'checked')
 		})
 
 		target.appendChild(div)
