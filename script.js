@@ -1,13 +1,30 @@
+//Select all elements
+const clear = document.querySelector('.clear')
+const list = document.getElementById('list')
+const input = document.getElementById('input')
+
+// classes names
+const check =  'fas fa-check-circle'
+const uncheck = 'far fa-circle'
+const lineThrough = 'lineThrought'
 
 
+// add to do function
+
+let addToDo = (toDo) => {
+	const item = `
+	<li class="item">
+	<i class="far fa-circle com"></i>
+	<p class="text lineThrouh">${toDo}</p>
+	<i class="far fa-trash-alt del"></i>
+	</li>
+	`
+	const position = 'beforeend'
+	list.insertAdjacentHTML(position, item)
+}
 
 
-
-
-
-
-
-
+addToDo('buy coffee')
 
 
 // =============================================================

@@ -23,6 +23,23 @@ body{
    position: relative;
 }
 
+#input{
+    position: absolute;
+    height: 35px;
+    width: 310px;
+    top: 93px;
+    left: 10px;
+}
+
+.pen{
+    position: absolute;
+    top: 99px;
+    right: 11px;
+    font-size: 30px;
+    color: white;
+}
+
+
 .clear{
     width : 30px;
     height: 30px;
@@ -70,14 +87,31 @@ body{
     padding: 0;
 }
 
+
+
 .item i.com{
     position: absolute;
     font-size: 25px;
     padding-left:5px;
-    left:15px;
+    left: 8px;
     top:10px;
 }
 
+.lineThrough{
+    text-decoration: line-through;
+    color : #ccc;
+}
+
+.item p.text{
+    position: absolute;
+    padding:0;
+    margin:0;
+    font-size: 20px;
+    left:50px;
+    top: 11px;
+    background-color: #FFF;
+    max-width:285px;
+}
 
 .item i.del{
     position: absolute;
@@ -90,7 +124,30 @@ body{
 
 
 
+/* 800px */
+@media(max-width: 800px){
 
+    .container{
+        width:100%;
+        margin:0 auto;
+    
+    }
+    .header{
+        margin-top: 0;
+        width: 100%;
+      
+    }
+
+    .content {
+        width: 100%;
+        min-height: 400px;
+      
+    }
+
+        .item{
+            width: 100%;
+        }
+}
 
 
 
