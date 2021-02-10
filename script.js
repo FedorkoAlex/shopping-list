@@ -88,7 +88,7 @@ list.addEventListener('click', (event) => {
 		removeProdList(element)
 	}
 
-}
+}) 
 
 
   	
