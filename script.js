@@ -2,31 +2,99 @@
 const clear = document.querySelector('.clear')
 const list = document.getElementById('list')
 const input = document.getElementById('input')
+const add = document.querySelector('.pen')
+
 
 // classes names
-const check =  'fas fa-check-circle'
-const uncheck = 'far fa-circle'
-const lineThrough = 'lineThrought'
+const check =  'fas fa-check-circle com'
+const uncheck = 'far fa-circle com'
+const lineThrough = 'lineThrough'
+
+// listAray
+let LIST = [], id = 0
 
 
 // add to do function
 
-let addToDo = (toDo) => {
-	const item = `
+let addToDo = (toDo, id, done, trash) => {
+	if(trash){ return }
+
+	const DONE = done ? check : uncheck
+	const LINE = done ? lineThrough : ''
+
+	item = `
 	<li class="item">
-	<i class="far fa-circle com"></i>
-	<p class="text lineThrouh">${toDo}</p>
-	<i class="far fa-trash-alt del"></i>
+	<i class="${DONE}" id="${id}"></i>
+	<p class="text ${LINE}">${toDo}</p>
+	<i class="far fa-trash-alt del" id="${id}"></i>
 	</li>
 	`
 	const position = 'beforeend'
 	list.insertAdjacentHTML(position, item)
+
+
 }
 
 
-addToDo('buy coffee')
-addToDo('buy avokado')
+addToDo('coffee', 1 , true, true )
 
+//add item to the list
+
+add.addEventListener('click', (add) => {
+	const toDo = input.value
+
+	if(toDo){
+		addToDo(toDo, id, false, false)
+		LIST.push({
+			name: toDo,
+			id: id,
+			done: false,
+			trash: false
+		
+		})
+		id++
+	}
+
+	input.value = ''
+
+
+})
+
+// complete shopping list
+
+let completeProdList = (element) => {
+	element.classList.toggle(check)
+	element.classList.toggle(ucheck)
+	element.parentNode.querySelector('.text').classList.toggle(lineThrough)
+
+	LIST[element.id].done = LIST[element.id].done ? false : true
+}
+
+// remove shopping item
+
+function  removeProdList = (element) => {
+		element.parentNode.parentNode.removeChild(element.parentNode)
+
+	}
+
+
+
+
+
+
+
+// add.addEventListener('keyup', (even) => {
+// 	if(even.keyCode == 13){
+// 		const toDo = input.value
+
+// 		if(toDo){
+// 		addToDo(toDo)
+// 		}
+
+// 	}
+	
+// 	input.value = ''
+// })
 
 // =============================================================
 // Fully working app
