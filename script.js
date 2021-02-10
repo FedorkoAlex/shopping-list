@@ -25,6 +25,7 @@ let addToDo = (toDo) => {
 
 
 addToDo('buy coffee')
+addToDo('buy avokado')
 
 
 // =============================================================
