@@ -72,10 +72,26 @@ let completeProdList = (element) => {
 
 // remove shopping item
 
-function  removeProdList = (element) => {
+let removeProdList = (element) => {
 		element.parentNode.parentNode.removeChild(element.parentNode)
+		LIST[element.id].trash = true
 
+
+}
+		//target the items created dynamically
+list.addEventListener('click', (event) => {
+	const element = event.target	 // return the clicked element inside the list
+	const elementJob = element.attributes.job.value //complete or delete
+	if(elementJob == 'complete'){
+		completeProdLis(element)
+	}else if(elementJob == 'delete'){
+		removeProdList(element)
 	}
+
+}
+
+
+  	
 
 
 
@@ -282,4 +298,4 @@ function  removeProdList = (element) => {
 
 //     })
 
-//     console.log(filter)
+//     console.log(filter
