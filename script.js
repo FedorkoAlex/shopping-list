@@ -1,63 +1,78 @@
-if(!(!!localStorage.getItem('products'))){
-	localStorage.setItem('products', JSON.stringify([]))  
-}    // if there are no products in local storage they are created
 
 
 
-let render = () => {
-	let parseItems = JSON.parse(localStorage.getItem('products')) // get 'products'
-	let target = document.getElementById('target')  			 // target is a div where these products will be displayed
-	target.innerText = ''
-	for(const item of parseItems){									
-		let div = document.createElement('div')
-		div.setAttribute('id', item.id)
-		div.innerText = item.title									// display the title
-		let deleteBtn = document.createElement('button')
-		deleteBtn.innerText = 'delete'
-		div.appendChild(deleteBtn)
+
+
+
+
+
+
+
+
+
+// =============================================================
+// Fully working app
+
+// if(!(!!localStorage.getItem('products'))){
+// 	localStorage.setItem('products', JSON.stringify([]))  
+// }    // if there are no products in local storage they are created
+
+
+
+// let render = () => {
+// 	let parseItems = JSON.parse(localStorage.getItem('products')) // get 'products'
+// 	let target = document.getElementById('target')  			 // target is a div where these products will be displayed
+// 	target.innerText = ''
+// 	for(const item of parseItems){									
+// 		let div = document.createElement('div')
+// 		div.setAttribute('id', item.id)
+// 		div.innerText = item.title									// display the title
+// 		let deleteBtn = document.createElement('button')
+// 		deleteBtn.innerText = 'delete'
+// 		div.appendChild(deleteBtn)
 
 	
 
-		deleteBtn.addEventListener('click', () => {
+// 		deleteBtn.addEventListener('click', () => {
 	
 
-			let result = parseItems.filter(function(product){  // we need to filter each product and leave products that are not equal with the one that had been selected before
-				return product.id !== item.id
-			})
-			localStorage.setItem('products', JSON.stringify(result) ) // we save new set of 'products' and at the same time stringify them
-			location.reload()
+// 			let result = parseItems.filter(function(product){  // we need to filter each product and leave products that are not equal with the one that had been selected before
+// 				return product.id !== item.id
+// 			})
+// 			localStorage.setItem('products', JSON.stringify(result) ) // we save new set of 'products' and at the same time stringify them
+// 			location.reload()
 			
-		})
+// 		})
 
-		div.addEventListener('click', () => {
-			div.setAttribute('class', 'checked')
-		})
+// 		div.addEventListener('click', () => {
+// 			div.setAttribute('class', 'checked')
+// 		})
 
-		target.appendChild(div)
-	 }
+// 		target.appendChild(div)
+// 	 }
 	
-}
+// }
 
-render()
+// render()
 
 
-let btn = document.getElementById('save')
-btn.addEventListener('click', () => {
-	let title = document.getElementById('title')
-	let productTitle = title.value
-	let product = {
-		id:  new Date().getTime(),
-		title: productTitle
-	}
+// let btn = document.getElementById('save')
+// btn.addEventListener('click', () => {
+// 	let title = document.getElementById('title')
+// 	let productTitle = title.value
+// 	let product = {
+// 		id:  new Date().getTime(),
+// 		title: productTitle
+// 	}
 	
-	let productList = JSON.parse(localStorage.getItem('products'))
-	productList.push(product)
-	localStorage.setItem('products', JSON.stringify(productList))
-	render()
-	title.value = ''
+// 	let productList = JSON.parse(localStorage.getItem('products'))
+// 	productList.push(product)
+// 	localStorage.setItem('products', JSON.stringify(productList))
+// 	render()
+// 	title.value = ''
 	
 
-})
+// })
 
 
 
