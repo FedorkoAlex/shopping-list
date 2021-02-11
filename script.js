@@ -11,7 +11,7 @@ const uncheck = 'fa-circle'
 const lineThrough = 'lineThrough'
 
 // listAray
-let LIST, id
+let LIST, id;
 //get item from local starage 
 let data = localStorage.getItem('prList')
 //check if the data is not empty in the local storage
@@ -26,22 +26,18 @@ if(data){
 }
 
 
-//load items to the user's interface
-let loadList = (arr) => {
-	for(const item of arr){
-		addToDo(item.name, item.id, item.done, item.trash)
-	}
+
+function loadList(array){
+
+	array.forEach(function(item){
+	let	addToDo=(item.name, item.id, item.done, item.trash)
+	})
 }
-// function loadList(array){
-// 	array.forEach(item => {
-// 		addToDo(item.name, item.id, item.done, item.trash)
-// 	});
-// }
 
 
 
-//add item to the local storage (this code must be written everywhere we update List array)
-localStorage.setItem('prList', JSON.stringify(LIST))
+// //add item to the local storage (this code must be written everywhere we update List array)
+// localStorage.setItem('prList', JSON.stringify(LIST))
 
 // add to do function
 
@@ -65,7 +61,7 @@ let addToDo = (toDo, id, done, trash) => {
 }
 
 
-addToDo('coffee', 1 , true, true )
+
 
 //add item to the list
 
@@ -79,8 +75,6 @@ add.addEventListener('click', (add) => {
 			id: id,
 			done: false,
 			trash: false
-		
-			
 		})
 
 		//add item to the local storage (this code must be written everywhere we update List array)
