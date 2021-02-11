@@ -6,13 +6,42 @@ const add = document.querySelector('.pen')
 
 
 // classes names
-const check =  'fas fa-check-circle com'
-const uncheck = 'far fa-circle com'
+const check =  'fa-check-circle'
+const uncheck = 'fa-circle'
 const lineThrough = 'lineThrough'
 
 // listAray
-let LIST = [], id = 0
+let LIST, id
+//get item from local starage 
+let data = localStorage.getItem('prList')
+//check if the data is not empty in the local storage
+if(data){
+	LIST = JSON.parse(data)
+	id = LIST.length // set the id to the least one in the list
+	loadList(LIST) // load the list to the user interface
+}else{
+	//If data isn't empty
+	LIST = []
+	id = 0
+}
 
+
+//load items to the user's interface
+let loadList = (arr) => {
+	for(const item of arr){
+		addToDo(item.name, item.id, item.done, item.trash)
+	}
+}
+// function loadList(array){
+// 	array.forEach(item => {
+// 		addToDo(item.name, item.id, item.done, item.trash)
+// 	});
+// }
+
+
+
+//add item to the local storage (this code must be written everywhere we update List array)
+localStorage.setItem('prList', JSON.stringify(LIST))
 
 // add to do function
 
@@ -24,9 +53,9 @@ let addToDo = (toDo, id, done, trash) => {
 
 	item = `
 	<li class="item">
-	<i class="${DONE}" id="${id}"></i>
+	<i class="far ${DONE} com" id="${id}" job='complete'></i>
 	<p class="text ${LINE}">${toDo}</p>
-	<i class="far fa-trash-alt del" id="${id}"></i>
+	<i class="far fa-trash-alt del" id="${id}" job='delete'></i>
 	</li>
 	`
 	const position = 'beforeend'
@@ -51,7 +80,11 @@ add.addEventListener('click', (add) => {
 			done: false,
 			trash: false
 		
+			
 		})
+
+		//add item to the local storage (this code must be written everywhere we update List array)
+		localStorage.setItem('prList', JSON.stringify(LIST))
 		id++
 	}
 
@@ -64,7 +97,7 @@ add.addEventListener('click', (add) => {
 
 let completeProdList = (element) => {
 	element.classList.toggle(check)
-	element.classList.toggle(ucheck)
+	element.classList.toggle(uncheck)
 	element.parentNode.querySelector('.text').classList.toggle(lineThrough)
 
 	LIST[element.id].done = LIST[element.id].done ? false : true
@@ -83,11 +116,12 @@ list.addEventListener('click', (event) => {
 	const element = event.target	 // return the clicked element inside the list
 	const elementJob = element.attributes.job.value //complete or delete
 	if(elementJob == 'complete'){
-		completeProdLis(element)
+		completeProdList(element)
 	}else if(elementJob == 'delete'){
 		removeProdList(element)
 	}
-
+	//add item to the local storage (this code must be written everywhere we update List array)
+	localStorage.setItem('prList', JSON.stringify(LIST))
 }) 
 
 
