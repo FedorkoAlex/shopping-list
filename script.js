@@ -10,37 +10,6 @@ const check =  'fa-check-circle'
 const uncheck = 'fa-circle'
 const lineThrough = 'lineThrough'
 
-// listAray
-let LIST, id;
-//get item from local starage 
-let data = localStorage.getItem('prList')
-//check if the data is not empty in the local storage
-if(data){
-	LIST = JSON.parse(data)
-	id = LIST.length // set the id to the least one in the list
-	loadList(LIST) // load the list to the user interface
-}else{
-	//If data isn't empty
-	LIST = []
-	id = 0
-}
-
-
-
-function loadList(array){
-
-	array.forEach(function(item){
-	let	addToDo=(item.name, item.id, item.done, item.trash)
-	})
-}
-
-
-
-// //add item to the local storage (this code must be written everywhere we update List array)
-// localStorage.setItem('prList', JSON.stringify(LIST))
-
-// add to do function
-
 let addToDo = (toDo, id, done, trash) => {
 	if(trash){ return }
 
@@ -60,6 +29,43 @@ let addToDo = (toDo, id, done, trash) => {
 
 }
 
+// listAray
+let LIST, id;
+//get item from local starage 
+let data = localStorage.getItem('prList')
+//check if the data is not empty in the local storage
+if(data){
+	LIST = JSON.parse(data)
+	id = LIST.length // set the id to the least one in the list
+	loadList(LIST) // load the list to the user interface
+}else{
+	//If data isn't empty
+	LIST = []
+	id = 0
+}
+
+
+
+function loadList(array){
+
+	array.forEach(item => {
+			addToDo(item.name, item.id, item.done, item.trash)
+	})
+}
+
+clear.addEventListener('click', () => {
+	localStorage.clear()
+	location.reload()
+})
+
+
+// //add item to the local storage (this code must be written everywhere we update List array)
+// localStorage.setItem('prList', JSON.stringify(LIST))
+
+// add to do function
+
+
+
 
 
 
@@ -70,6 +76,7 @@ add.addEventListener('click', (add) => {
 
 	if(toDo){
 		addToDo(toDo, id, false, false)
+
 		LIST.push({
 			name: toDo,
 			id: id,
