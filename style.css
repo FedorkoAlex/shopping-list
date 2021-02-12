@@ -25,10 +25,24 @@ body{
 
 #input{
     position: absolute;
-    height: 35px;
-    width: 310px;
+    height: 45px;
+    width: 290px;
     top: 93px;
     left: 10px;
+    border: none;
+    font-size: 20px;
+    border-radius: 15px;
+    outline: none;
+}
+
+#input::placeholder{
+  
+    padding-left: 5px;
+}
+
+input[type=text]{
+    padding-left: 20px; 
+    font-size: 20px;
 }
 
 .pen{
@@ -44,7 +58,7 @@ body{
     width : 30px;
     height: 30px;
     position: absolute;
-    right:20px;
+    right:9px;
     top: 20px;
 }
 
@@ -140,12 +154,18 @@ body{
 
     .content {
         width: 100%;
-        min-height: 400px;
+        min-height: 80vh;
       
     }
 
         .item{
             width: 100%;
+        }
+        
+        #input{
+           
+            width: 270px;
+           
         }
 }
 
